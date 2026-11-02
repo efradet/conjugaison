@@ -1,0 +1,46 @@
+// Temps simple → temps composé, à l'actif et au passif.
+// t : temps simple de la phrase de départ, pr : sujet, g : accord au passif ou avec "aller".
+const A = (id, v, t, pr, s, c, extra = {}) => ({id, v, t, pr, s, c, voice: 'actif', ...extra});
+const P = (id, v, t, pr, s, c, extra = {}) => ({id, v, t, pr, s, c, voice: 'passif', ...extra});
+
+export const COMPOSE = [
+  A('c01', 'lire', 'present', 'il', "Mon frère lit une bande dessinée.", "Mon frère a lu une bande dessinée."),
+  A('c02', 'aller', 'present', 'elle', "Léa va au marché.", "Léa est allée au marché.", {g: 'fs'}),
+  A('c03', 'boire', 'imparfait', 'ils', "Les chevaux buvaient à la rivière.", "Les chevaux avaient bu à la rivière."),
+  A('c04', 'recevoir', 'futur', 'tu', "Tu recevras ton colis.", "Tu auras reçu ton colis."),
+  A('c05', 'pouvoir', 'cond_present', 'nous', "Nous pourrions vous aider.", "Nous aurions pu vous aider."),
+  A('c06', 'dire', 'passe_simple', 'ils', "Les soldats dirent adieu à leur famille.", "Les soldats eurent dit adieu à leur famille."),
+  A('c07', 'ouvrir', 'subj_present', 'tu', "Il faut que tu ouvres la fenêtre.", "Il faut que tu aies ouvert la fenêtre."),
+  A('c08', 'souffrir', 'present', 'je', "Je souffre du froid.", "J'ai souffert du froid."),
+  A('c09', 'souffrir', 'imparfait', 'elles', "Elles souffraient de la chaleur.", "Elles avaient souffert de la chaleur."),
+  A('c10', 'aller', 'futur', 'ils', "Ils iront à Lausanne.", "Ils seront allés à Lausanne.", {g: 'mp'}),
+  A('c11', 'aller', 'imparfait', 'nous', "Nous allions à la plage.", "Nous étions allés à la plage.", {g: 'mp', alt: ["Nous étions allées à la plage."]}),
+  A('c12', 'peser', 'present', 'elle', "La pharmacienne pèse la poudre.", "La pharmacienne a pesé la poudre."),
+  A('c13', 'lever', 'cond_present', 'vous', "Vous lèveriez la main.", "Vous auriez levé la main."),
+  A('c14', 'elever', 'imparfait', 'il', "Cet éleveur élevait des moutons.", "Cet éleveur avait élevé des moutons."),
+  A('c15', 'couvrir', 'futur', 'il', "Le peintre couvrira le mur.", "Le peintre aura couvert le mur."),
+  A('c16', 'offrir', 'subj_present', 'elle', "Je veux qu'elle offre ce livre.", "Je veux qu'elle ait offert ce livre."),
+  A('c17', 'apercevoir', 'passe_simple', 'nous', "Nous aperçûmes un renard.", "Nous eûmes aperçu un renard."),
+  A('c18', 'assieger', 'futur', 'elles', "Les troupes assiégeront le fort.", "Les troupes auront assiégé le fort."),
+  A('c19', 'mouvoir', 'present', 'il', "Ce moteur meut la grue.", "Ce moteur a mû la grue.", {alt: ["Ce moteur a mu la grue."]}),
+  A('c20', 'boire', 'imp_present', 'tu', "Bois ton lait !", "Aie bu ton lait !"),
+  A('c21', 'lire', 'imp_present', 'vous', "Lisez ce chapitre !", "Ayez lu ce chapitre !"),
+  A('c22', 'aller', 'imp_present', 'tu', "Va à l'école !", "Sois allé à l'école !", {g: 'ms', alt: ["Sois allée à l'école !"]}),
+  A('c23', 'dire', 'ger_present', 'il', "En disant cela, il a souri.", "En ayant dit cela, il a souri."),
+  A('c24', 'lire', 'ger_present', 'tu', "En lisant ce livre, tu as appris beaucoup.", "En ayant lu ce livre, tu as appris beaucoup."),
+  P('c25', 'lire', 'present', 'elle', "La lettre est lue par Paul.", "La lettre a été lue par Paul."),
+  P('c26', 'ouvrir', 'imparfait', 'elles', "Les portes étaient ouvertes par le gardien.", "Les portes avaient été ouvertes par le gardien."),
+  P('c27', 'assieger', 'passe_simple', 'il', "Le château fut assiégé par l'ennemi.", "Le château eut été assiégé par l'ennemi."),
+  P('c28', 'recevoir', 'futur', 'ils', "Les invités seront reçus par le maire.", "Les invités auront été reçus par le maire."),
+  P('c29', 'offrir', 'cond_present', 'il', "Ce cadeau serait offert par mes parents.", "Ce cadeau aurait été offert par mes parents."),
+  P('c30', 'peser', 'subj_present', 'ils', "Il faut que ces sacs soient pesés par le vendeur.", "Il faut que ces sacs aient été pesés par le vendeur."),
+  P('c31', 'elever', 'present', 'elles', "Les chèvres sont élevées par ce paysan.", "Les chèvres ont été élevées par ce paysan."),
+  P('c32', 'couvrir', 'present', 'il', "Le mur est couvert de lierre.", "Le mur a été couvert de lierre."),
+  P('c33', 'mouvoir', 'imparfait', 'elle', "Cette roue était mue par l'eau.", "Cette roue avait été mue par l'eau."),
+  P('c34', 'lever', 'futur', 'il', "Le drapeau sera levé par l'arbitre.", "Le drapeau aura été levé par l'arbitre."),
+  P('c35', 'dire', 'present', 'ils', "Ces mots sont dits par le comédien.", "Ces mots ont été dits par le comédien."),
+  P('c36', 'boire', 'cond_present', 'elle', "Cette eau serait bue par les animaux.", "Cette eau aurait été bue par les animaux."),
+  P('c37', 'apercevoir', 'imparfait', 'il', "Un renard était aperçu par les chasseurs.", "Un renard avait été aperçu par les chasseurs."),
+  P('c38', 'lire', 'subj_present', 'elle', "Je veux que cette affiche soit lue par tous.", "Je veux que cette affiche ait été lue par tous."),
+];
+export const COMPOSE_BY_ID = Object.fromEntries(COMPOSE.map(x => [x.id, x]));
